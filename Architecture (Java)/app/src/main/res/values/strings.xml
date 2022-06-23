@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Architecture</string>
+    <string name="operation_success">Operation Success!!!</string>
+    <string name="save">Save</string>
+    <string name="confirm">Confirm</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete">Do you want to delete room \'%s\'?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="room_name_hint">Name (for example: Kitchen)</string>
+    <string name="room_size_hint">Size (for example: 9m2)</string>
+    <string name="no_data_available">No data available</string>
+    <plurals name="room_quantity">
+        <item quantity="one">Found %d room</item>
+        <item quantity="other">Found %d rooms</item>
+    </plurals>
+</resources>
