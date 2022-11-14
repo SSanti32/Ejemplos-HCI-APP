@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Navigation</string>
+    <string name="goto_other_screen">Go To Other Screen</string>
+    <string name="received_id">Received id %1$d</string>
+</resources>
