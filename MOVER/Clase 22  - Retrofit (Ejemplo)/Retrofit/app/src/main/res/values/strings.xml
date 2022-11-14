@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Retrofit</string>
+    <string name="loading">Loading users...</string>
+    <string name="load_users">LOAD USERS</string>
+    <string name="dismiss">DISMISS</string>
+</resources>
