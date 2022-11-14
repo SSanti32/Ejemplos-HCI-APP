@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Lifecycle</string>
-    <string name="main_activity">Main Activity</string>
-    <string name="secondary_activity">Secondary Activity</string>
-    <string name="show_secondary_activity">Show Secondary Activity</string>
-</resources>

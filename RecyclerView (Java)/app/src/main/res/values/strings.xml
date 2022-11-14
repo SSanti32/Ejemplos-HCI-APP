@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Recycler View</string>
-    <string name="element_clicked">Element %1$d clicked</string>
-    <string name="item_text">Item %1$d</string>
-</resources>
