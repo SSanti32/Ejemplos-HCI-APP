@@ -62,11 +62,16 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
     implementation 'androidx.compose.material:material:1.3.1'
     implementation "com.google.accompanist:accompanist-swiperefresh:0.27.0"
+    // esta nos sirve para refrescar la pagina deslizando para abajo
+    // es de donde sale el SwipeRefresh
+
     implementation 'com.google.code.gson:gson:2.10'
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
     implementation 'io.coil-kt:coil-compose:2.2.2'
+    // esta es la dependencia que usa para los avatares que se obtienen por https ->
+    // es de donde sale el AsyncImage
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'

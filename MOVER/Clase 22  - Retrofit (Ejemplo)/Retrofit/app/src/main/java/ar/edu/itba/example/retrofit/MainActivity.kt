@@ -41,7 +41,11 @@ class MainActivity : ComponentActivity() {
                     MainScreen(
                         scaffoldState = scaffoldState,
                         modifier = Modifier.padding(contentPadding),
-                        viewModel = viewModel())
+                        viewModel = viewModel()
+                        // aca nunca tenemos que igualar a MainViewModel() xq
+                        // vamos a tener una nueva instancia de viewModel
+                        // con cualquier cambio que no es lo que queremos
+                        )
                 }
             }
         }
@@ -56,7 +60,10 @@ fun MainScreen(scaffoldState: ScaffoldState,
 
     SwipeRefresh(
         state = rememberSwipeRefreshState(uiState.isLoading),
+        // como esta atado al uiState.isLoading se va a ver el icono/gif 
+        // de refresco
         onRefresh = { viewModel.fetchUsers(1) },
+        // para ver el cambio harcodeamos a la pagina 1
     ) {
         Column(
             modifier = modifier
@@ -78,6 +85,8 @@ fun MainScreen(scaffoldState: ScaffoldState,
                         )
                     }
                 else {
+                    // uiState.users es el NetworkListUsers que tiene un 
+                    // 'data' que es donde esta la lista posta
                     val list = uiState.users?.data.orEmpty()
                     LazyVerticalGrid(
                         columns = GridCells.Adaptive(minSize = 196.dp)
@@ -96,6 +105,7 @@ fun MainScreen(scaffoldState: ScaffoldState,
             Button(
                 onClick = {
                     viewModel.fetchUsers(2)
+                    // estamos yendo a la pagina 2 (para el ejemplo)
                 },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -106,17 +116,20 @@ fun MainScreen(scaffoldState: ScaffoldState,
                     modifier = Modifier.padding(8.dp))
             }
 
-            if (uiState.hasError) {
+            if (uiState.hasError) { 
+                // esto es para ver si tenemos algun error => mostramos el snackbar
                 val actionLabel = stringResource(R.string.dismiss)
 
                 LaunchedEffect(scaffoldState.snackbarHostState) {
                     val result = scaffoldState.snackbarHostState.showSnackbar(
-                        message = uiState.message!!,
+                        message = uiState.message!!, 
+                        // el '!!' da error si el objeto al cual se le aplica es nulo
                         actionLabel = actionLabel
                     )
                     when (result) {
                         SnackbarResult.Dismissed -> viewModel.dismissMessage()
                         SnackbarResult.ActionPerformed -> viewModel.dismissMessage()
+                        // en este segundo caso es cuando tocamos el dismiss
                     }
                 }
             }
@@ -141,7 +154,7 @@ fun UserCard(
             AsyncImage(
                 model = data.avatar,
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop, // "para cortar la imagen"
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)

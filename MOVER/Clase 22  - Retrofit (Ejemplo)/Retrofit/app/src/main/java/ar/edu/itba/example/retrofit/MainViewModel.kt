@@ -24,6 +24,8 @@ class MainViewModel : ViewModel() {
         fetchJob?.cancel()
         fetchJob = viewModelScope.launch {
             uiState = uiState.copy(isLoading = true)
+            // estoy haciendo una peticion a la api, 
+            // por eso estoy loading la info
             runCatching {
                 val apiService = RetrofitClient.getApiService()
                 apiService.getAllUsers(page)
@@ -33,6 +35,8 @@ class MainViewModel : ViewModel() {
                     isLoading = false
                 )
             }.onFailure { e ->
+                // Log.e("ERROR", e.toString()) -> lo usamos para ver los
+                // errores en el logcat
                 // Handle the error and notify the UI when appropriate.
                 uiState = uiState.copy(
                     message = e.message,
