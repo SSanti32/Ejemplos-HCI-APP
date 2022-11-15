@@ -14,6 +14,8 @@ interface ApiUserService {
 
     @POST("users/logout")
     suspend fun logout(): Response<Unit>
+    // como este no esta devolviendo nada le ponemos Unit dentro de Response
+    // es una especie de void
 
     @GET("users/current")
     suspend fun getCurrentUser(): Response<NetworkUser>

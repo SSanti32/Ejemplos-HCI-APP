@@ -7,6 +7,10 @@ import com.google.gson.stream.JsonWriter
 import java.util.*
 
 class ApiDateTypeAdapter : TypeAdapter<Date?>() {
+    
+    // con el write vamos a agarrar y construir el numero que tengo 
+    // que enviar en el JSON --> va a serializar el dato
+    // del Date al Timestamp
     override fun write(out: JsonWriter, value: Date?) {
         if (value == null) out.nullValue() else out.value(value.time)
     }
